@@ -4,6 +4,7 @@ import { Pokedex } from "app/component/Pokedex";
 import { fetchPokemonList } from "app/utils/api/fetchPokemonList";
 import { Pokemon } from "app/utils/types/Pokemon";
 import { PokemonModal } from "app/component/PokemonModal";
+import { SearchField } from "app/component/SearchField";
 
 
 function App() {
@@ -53,6 +54,10 @@ function App() {
         disabledButton={disabledButton}
         setDisabledButton={setDisabledButton}
         searchBarRef={searchBarRef}/>
+        <div className="grid justify-items-center mb-12 ">
+          <div><SearchField setPokemonList={setPokemonList}
+          setError={setError}
+          setLoading={setLoading}/></div></div>
       <Pokedex
         setModal={setModal}
         setPokemonData={setPokemonData}
@@ -70,9 +75,12 @@ function App() {
         searchBarRef={searchBarRef}
         disabledButton={disabledButton}
       /></div>
+      
        {pokemonData && modal && (
         <PokemonModal setModal={setModal} pokemonData={pokemonData} />
       )}
+     
+
     </>
   );
 }
