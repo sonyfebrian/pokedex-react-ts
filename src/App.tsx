@@ -40,7 +40,18 @@ function App() {
   }, [pokemonList]);
   return (
     <>
-    <div className="bg-indigo-950"><Header />
+    <div className="bg-indigo-950">
+      
+      <Header setPokemonList={setPokemonList}
+        pokemonAmount={pokemonAmount}
+        setPokemonAmount={setPokemonAmount}
+        setError={setError}
+        setLoading={setLoading}
+        setPage={setPage}
+        setShowPagination={setShowPagination}
+        disabledButton={disabledButton}
+        setDisabledButton={setDisabledButton}
+        searchBarRef={searchBarRef}/>
       <Pokedex
         setModal={setModal}
         setPokemonData={setPokemonData}
