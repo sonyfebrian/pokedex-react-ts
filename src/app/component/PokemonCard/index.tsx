@@ -36,49 +36,45 @@ export const PokemonCard = (props: PokemonCardProps) => {
   };
 
   return (
-//     <div className="flex flex-col justify-center items-center max-w-sm mx-auto my-8">
-//   <div 
-//        className="bg-gray-300 h-64 w-full rounded-lg shadow-md bg-cover bg-center"></div>
-//   <div className="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
-//     <div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">Nike Revolt</div>
-//     <div className="flex items-center justify-between py-2 px-3 bg-gray-400">
-//       <h1 className="text-gray-800 font-bold ">$129</h1>
-//       <button className=" bg-gray-800 text-xs text-white px-2 py-1 font-semibold rounded uppercase hover:bg-gray-700">Add to cart</button>
-//     </div>
-//   </div>
-// </div>
-<C.Container>
-<C.CardOverlay color={color} />
-<C.PokemonImg>
-  <img src={imgUrl} alt={props.pokemon.name} />
-</C.PokemonImg>
-<C.PokemonNumber>{formatPokemonId(props.pokemon.id)}</C.PokemonNumber>
-<C.PokemonName>{props.pokemon.name}</C.PokemonName>
-<C.PokemonType>
-  {props.pokemon.types.map(({ type }) => (
-    <PokemonType key={type.name} type={type.name} tabIndex={false} />
-  ))}
-</C.PokemonType>
-<C.PokemonFeatures>
-  <C.PokemonWeight>
-    <div>
-     
-      <span>{`${props.pokemon.weight / 10}`} kg</span>
+
+<>
+
+<div className='flex items-center justify-center my-14 from-gray-700  lg:w-1/3'>
+
+<div className="relative w-full group max-w-md min-w-0 mx-auto break-words border dark:bg-gray-800 dark:border-gray-700 md:max-w-sm rounded-3xl">
+    <div className="pb-6">
+        <div className="flex flex-wrap justify-center">
+            <div className="flex justify-center w-full">
+                <div className="relative">
+                    <img src={imgUrl} alt="" className="dark:shadow-xl  dark:border-gray-800 align-middle absolute -m-28   lg:-ml-16 max-w-[200px]" />
+                </div>
+            </div>
+        </div>
+        <div className="mt-2 mt-20 text-center">
+            <h3 className="mb-1 text-2xl font-bold leading-normal text-white dark:text-gray-300">{formatPokemonId(props.pokemon.id)}</h3>
+            <div className="flex flex-row justify-center w-full mx-auto space-x-2 text-center">
+                <div className="text-sm normal-case font-bold tracking-wide text-white dark:text-gray-300 font-mono text-xl">{props.pokemon.name}</div>
+            </div>
+            <div className="w-full text-center">
+                <div className="flex justify-center pt-8 pb-0 lg:pt-4">
+                    <div className="flex space-x-2">
+                    {props.pokemon.types.map(({ type }) => (
+                        <PokemonType key={type.name} type={type.name} tabIndex={false} />
+                      ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="h-6 mt-6">
+        <C.MoreDetailsButton color={color} onClick={handleClick}>
+        More Details
+        </C.MoreDetailsButton>
+        </div>
     </div>
-    <span>Peso</span>
-  </C.PokemonWeight>
-  <C.PokemonHeight>
-    <div>
-   
-      <span>{`${props.pokemon.height / 10}`} m</span>
-    </div>
-    <span>Altura</span>
-  </C.PokemonHeight>
-</C.PokemonFeatures>
-<C.MoreDetailsButton color={color} onClick={handleClick}>
- 
-  Mais Detalhes
-</C.MoreDetailsButton>
-</C.Container>
+</div>
+
+</div>
+</>
+
   );
 };

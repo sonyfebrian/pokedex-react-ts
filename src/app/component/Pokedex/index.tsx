@@ -1,8 +1,5 @@
 import UsePagination from "../Pagination";
 import { PokemonCard } from "../PokemonCard";
-import * as C from "./styles";
-import { ReactComponent as AddIcon } from "app/assets/icon-add.svg";
-import { ReactComponent as UpArrowIcon } from "app/assets/icon-arrow-up.svg";
 import { Pokemon } from "app/utils/types/Pokemon";
 
 type PokedexProps = {
@@ -27,21 +24,22 @@ type PokedexProps = {
     if (props.error) return <>error</>;
     else
       return (
-        <C.Wrapper>
-          <div className="main-container">
+        <>
+          <div >
             {props.loading ? (
               <>loading</>
             ) : (
-              <C.PokemonList>
-                {props.pokemonList.map((pokemon) => (
+              <div className="container px-5 py-5 ">
+                <div className="flex flex-wrap -m-4">{props.pokemonList.map((pokemon) => (
                   <PokemonCard
                     key={pokemon.id}
                     pokemon={pokemon}
                     setModal={props.setModal}
                     setPokemonData={props.setPokemonData}
                   />
-                ))}
-              </C.PokemonList>
+                ))}</div>
+                
+              </div>
             )}
             {props.pokemonList.length > 1 &&
               props.loading === false &&
@@ -54,36 +52,8 @@ type PokedexProps = {
                   setPage={props.setPage}
                 />
               )}
-            {props.pokemonList.length > 1 &&
-              props.loading === false &&
-              props.showPagination === false && (
-                <C.ButtonContainer>
-                  {props.pokemonAmount < 54 && (
-                    <button
-                      className="button"
-                      onClick={() =>
-                        props.setPokemonAmount(props.pokemonAmount + 9)
-                      }
-                      disabled={props.disabledButton ? true : false}
-                    >
-                      <AddIcon />
-                      Mostrar mais pokémons
-                    </button>
-                  )}
-  
-                  <button
-                    className="button"
-                    onClick={() => {
-                      window.scrollTo({
-                        top: props.searchBarRef.current.offsetTop - 56,
-                      });
-                    }}
-                  >
-                    <UpArrowIcon />
-                  </button>
-                </C.ButtonContainer>
-              )}
+         
           </div>
-        </C.Wrapper>
+        </>
       );
   };

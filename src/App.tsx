@@ -40,7 +40,7 @@ function App() {
   }, [pokemonList]);
   return (
     <>
-      <Header />
+    <div className="bg-indigo-950"><Header />
       <Pokedex
         setModal={setModal}
         setPokemonData={setPokemonData}
@@ -57,7 +57,8 @@ function App() {
         setShowPagination={setShowPagination}
         searchBarRef={searchBarRef}
         disabledButton={disabledButton}
-      />
+      /></div>
+      
     </>
   );
 }
