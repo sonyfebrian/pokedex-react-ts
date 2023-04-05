@@ -42,7 +42,6 @@ type SearchFilterProps = {
   
     return (
       <C.Container>
-        {/* <C.Title>Pesquisar por tipos</C.Title> */}
         <Slide>
           {pokemonTypes.map(({ name }) => (
             <PokemonType

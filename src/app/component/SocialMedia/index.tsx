@@ -5,7 +5,7 @@ export const SocialMedia = () => {
     return (
       <C.Container>
         <li>
-          <C.Link href="https://github.com/carlosdancr">
+          <C.Link href="https://github.com/sonyfebrian/pokedex-react-ts">
             <GithubLogo />
           </C.Link>
         </li>
