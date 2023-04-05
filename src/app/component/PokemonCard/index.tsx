@@ -41,7 +41,7 @@ export const PokemonCard = (props: PokemonCardProps) => {
 
 <div className='flex items-center justify-center my-14 from-gray-700  lg:w-1/3'>
 
-<div className="relative w-full group max-w-md min-w-0 mx-auto break-words border dark:bg-gray-800 dark:border-gray-700 md:max-w-sm rounded-3xl">
+<div className="relative w-full  group max-w-md min-w-0 mx-auto break-words border dark:bg-gray-800 dark:border-gray-700 md:max-w-sm rounded-3xl">
     <div className="pb-6">
         <div className="flex flex-wrap justify-center">
             <div className="flex justify-center w-full">

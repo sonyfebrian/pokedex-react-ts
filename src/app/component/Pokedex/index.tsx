@@ -1,6 +1,8 @@
 import UsePagination from "../Pagination";
 import { PokemonCard } from "../PokemonCard";
 import { Pokemon } from "app/utils/types/Pokemon";
+import { Loading } from "app/Helper/Loading";
+import { ErrorMessage } from "app/Helper/ErrorMessage";
 
 type PokedexProps = {
     setModal: (value: boolean) => void;
@@ -21,13 +23,13 @@ type PokedexProps = {
   };
 
   export const Pokedex = (props: PokedexProps) => {
-    if (props.error) return <>error</>;
+    if (props.error) return <ErrorMessage />;
     else
       return (
         <>
           <div >
             {props.loading ? (
-              <>loading</>
+              <Loading />
             ) : (
               <div className="container px-5 py-5 ">
                 <div className="flex flex-wrap -m-4">{props.pokemonList.map((pokemon) => (

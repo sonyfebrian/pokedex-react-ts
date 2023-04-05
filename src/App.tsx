@@ -3,6 +3,7 @@ import { Header } from 'app/component/Layout/Header';
 import { Pokedex } from "app/component/Pokedex";
 import { fetchPokemonList } from "app/utils/api/fetchPokemonList";
 import { Pokemon } from "app/utils/types/Pokemon";
+import { PokemonModal } from "app/component/PokemonModal";
 
 
 function App() {
@@ -69,7 +70,9 @@ function App() {
         searchBarRef={searchBarRef}
         disabledButton={disabledButton}
       /></div>
-      
+       {pokemonData && modal && (
+        <PokemonModal setModal={setModal} pokemonData={pokemonData} />
+      )}
     </>
   );
 }
